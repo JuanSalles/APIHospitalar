@@ -1,15 +1,14 @@
+import mongoose from "mongoose"
 import { Horario } from "../interfaces/Horario"
-import { IMedico } from "../interfaces/IMedico"
 
-export class Medico{
 
-    private name: string
-    private registro: number
-    private horario: Horario
+const medicoSchema = new mongoose.Schema({
+    id: {type: mongoose.Schema.Types.ObjectId},
+    name: {type: String, required: true},
+    registroMedico: {type: Number},
+    horarioDeTrabalho: {type: String}
+}, {versionKey: false})
 
-    constructor(medico: IMedico){
-        this.name = medico.name
-        this.registro = medico.registro
-        this.horario = medico.horario
-    }
-}
+const medico = mongoose.model("medicos", medicoSchema);
+
+export {medico, medicoSchema}

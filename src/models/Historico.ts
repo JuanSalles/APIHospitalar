@@ -2,16 +2,15 @@ import mongoose from "mongoose";
 import { pacienteSchema } from "./Paciente";
 import { medicoSchema } from "./Medico";
 
-
-const consultaSchema = new mongoose.Schema({
-    id: { type: mongoose.Schema.Types.ObjectId },
-    paciente: {type: Object},
+const historicoSchema = new mongoose.Schema({
+    id: { type: String },
+    paciente: pacienteSchema,
     medico: medicoSchema,
     dataEHora: {type: Date},
     diagnosticos: {type: Array},
     medicamentosPrescritos: {type: Array<string>}
 }, {versionKey: false});
 
-const consulta = mongoose.model("consultasMarcadas", consultaSchema);
+const historico = mongoose.model("historico", historicoSchema);
 
-export {consulta, consultaSchema};
+export {historico, historicoSchema};

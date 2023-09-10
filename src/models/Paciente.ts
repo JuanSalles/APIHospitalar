@@ -1,18 +1,13 @@
-import { IPaciente } from "../interfaces/IPaciente"
+import mongoose from "mongoose"
 
-export class Paciente{
+const pacienteSchema = new mongoose.Schema ({
+    id: { type: mongoose.Schema.Types.ObjectId },
+    name: {type: String, required: true},
+    consultasMarcadas: {type: Array},
+    diagnosticosAnteriores: {type: Array},
+    historico: {type: Array}
+}, {versionKey: false});
 
-    private name: string
-    private id: number
-    private historico: Historico[]
-    private diagnosticosAnteriores: Diagnostico[]
-    private consultasMarcadas: Consulta[]
+const paciente = mongoose.model("pacientes", pacienteSchema);
 
-    constructor(paciente: IPaciente){
-        this.name = paciente.name
-        this.id = paciente.id
-        this.historico = paciente.historico
-        this.diagnosticosAnteriores = paciente.diagnosticosAnteriores
-        this.consultasMarcadas = paciente.consultasMarcadas
-    }
-}
+export {paciente, pacienteSchema};

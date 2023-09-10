@@ -1,2 +1,2 @@
-# APIHospitalar
-API Hospitalar construída como atividade final do Modulo-3 | POO do Santander Coders 2023.1
+# APILivraria
+API DE UMA LIVRARIA USANDO NODE.JS EXPRESS E MONGODB, CURSO DE API REST COM NODE DA ALURA
